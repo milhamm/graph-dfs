@@ -15,6 +15,7 @@ int main()
     {
         printCommand();
         cin >> command;
+        cout << endl;
         switch (command)
         {
         case 1:
@@ -35,13 +36,14 @@ int main()
         case 7:
             createGraph(G);
             break;
+        case 0:
+            cout << "Thank you for using this program\nMade By Muhammad Ilham Mubarak - IF-43-INT - 1301194276" << endl;
+            break;
         default:
             cout << "Please input the valid number (0 ~ 9)" << endl;
             break;
         }
     } while (command != 0);
-
-    cout << "Thank you for using this program\nMade By Muhammad Ilham Mubarak - IF-43-INT - 1301194276" << endl;
 
     return 0;
 }

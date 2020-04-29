@@ -121,18 +121,22 @@ void addEdge(Graph &G, int V1, int V2, int weight)
 
 void printGraph(Graph G)
 {
+    cout << "=== Print Graph ===" << endl;
     addressVertex V = first(G);
     if (V != NULL)
     {
+        cout << "Print Format: " << endl;
+        cout << "Node <Number> : [<Neighbour> (<Weight>)]" << endl;
 
+        cout << endl
+             << "Graph: " << endl;
         while (V != NULL)
         {
-            cout << "Node " << value(V) << ": ";
+            cout << "Vertex " << value(V) << ": ";
             addressNeighbour P = firstNeigbour(V);
             while (P != NULL)
             {
-                cout << "("
-                     << "Node " << value(P) << ", Weight: " << weight(P) << ")"
+                cout << "[" << value(P) << " (" << weight(P) << ")]"
                      << (next(P) == NULL ? "" : ", ");
                 P = next(P);
             }
@@ -229,6 +233,7 @@ void printCommand()
 
 void commandAddVertex(Graph &G)
 {
+    cout << "=== Add Vertex ===" << endl;
     cout << "What is the name of your vertex? (Use Number) : ";
     int vertex;
     cin >> vertex;
@@ -239,6 +244,7 @@ void commandAddVertex(Graph &G)
 
 void commandAddEdge(Graph &G)
 {
+    cout << "=== Add Edge ===" << endl;
     int from, to, weight;
     cout << "From Vertex: ";
     cin >> from;
@@ -253,6 +259,7 @@ void commandAddEdge(Graph &G)
 
 void commandDFSAll(Graph G)
 {
+    cout << "=== DFS All ===" << endl;
     int initial;
     cout << "Initial Vertex: ";
     cin >> initial;
@@ -261,6 +268,7 @@ void commandDFSAll(Graph G)
 
 void commandDFSFind(Graph G)
 {
+    cout << "=== DFS Find ===" << endl;
     int initial, to;
     cout << "Initial Vertex: ";
     cin >> initial;
