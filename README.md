@@ -31,4 +31,11 @@ You can pick an input from these files. Pick the menu `1` and choose the file by
         </td>
         <td>2.in</td>
     <tr>
+    <tr>
+        <td>3/td>
+        <td>
+          <img src="inputs/3.png">
+        </td>
+        <td>3.in</td>
+    <tr>
 </table>
