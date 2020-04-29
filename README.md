@@ -1,20 +1,24 @@
 # Depth First Search (DFS)
 
+Muhammad Ilham Mubarak - IF-43-INT - 1301194276
+
 An implementation of DFS using C++
 
 This repository contains an implementation of DFS to an undirected weighted graph
 The algorithm begin from a starting vertex, and proceeds to all other vertex in the graph with the lowest weight edge as a prioritize
 
-# Inputs
+## Inputs
+
+You can pick an input from these files. Pick the menu `1` and choose the file by their number. The graph is as follows
 
 <table>
     <tr>
-        <th>Name</th>
+        <th>No</th>
         <th>Image</th>
         <th>File</th>
     <tr>
     <tr>
-        <td>Graph 1</td>
+        <td>1</td>
         <td>
           <img src="1.png">
         </td>
