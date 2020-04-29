@@ -16,7 +16,7 @@ The algorithm begin from a starting vertex, and proceeds to all other vertex in 
     <tr>
         <td>Graph 1</td>
         <td>
-          <img src="1.png" height="70">
+          <img src="1.png">
         </td>
         <td>1.in</td>
     <tr>
