@@ -2,7 +2,7 @@
 
 /*
     Author : Muhammad Ilham Mubarak
-    Class :  IF-43-INT / 1301194276
+    Class :  IF-43-INT - 1301194276
 */
 
 int main()
