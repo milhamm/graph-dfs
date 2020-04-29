@@ -10,6 +10,9 @@ int main()
     Graph G;
     createGraph(G);
 
+    cout << "Welcome to DFS Assignment Program by Muhammad Ilham Mubarak" << endl;
+    cout << "For more information check the README.md" << endl;
+
     int command;
     do
     {
