@@ -286,7 +286,7 @@ void commandInputFromFile()
     string filename = "./inputs/";
 
     char file;
-    cout << "What File do you want to open? [0-6]: ";
+    cout << "What File do you want to open? (0 ~ 3): ";
     cin >> file;
 
     filename = filename + file + ".in";
