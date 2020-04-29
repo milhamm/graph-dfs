@@ -4,11 +4,6 @@
     author : Muhammad Ilham Mubarak
 */
 
-void puts(string s)
-{
-    cerr << s << endl;
-}
-
 void createGraph(Graph &G)
 {
     first(G) = NULL;
@@ -166,18 +161,21 @@ void dfs_all(Graph G, addressVertex vertex, bool isVisited[])
     }
 }
 
-void dfs_find(Graph G, addressVertex vertex, bool isVisited[], int searchedVertex, bool isFound)
+void dfs_find(Graph G, addressVertex vertex, bool isVisited[], int searchedVertex, bool &isFound)
 {
     isVisited[value(vertex)] = true;
+    isFound = value(vertex) == searchedVertex;
 
     cout << value(vertex) << " ";
-
-    addressNeighbour P = firstNeigbour(vertex);
-    while (P != NULL)
+    if (!isFound)
     {
-        if (!isVisited[value(P)])
-            dfs_all(G, findVertex(G, value(P)), isVisited);
-        P = next(P);
+        addressNeighbour P = firstNeigbour(vertex);
+        while (P != NULL)
+        {
+            if (!isVisited[value(P)] && !isFound)
+                dfs_find(G, findVertex(G, value(P)), isVisited, searchedVertex, isFound);
+            P = next(P);
+        }
     }
 }
 
@@ -187,16 +185,28 @@ void dfs(Graph G, int initialVertex, bool isFindVertex)
     bool *isVisited = new bool[N];
     memset(isVisited, 0, N);
 
-    cout << "DFS : ";
     if (!isFindVertex)
     {
+        cout << "DFS : ";
         dfs_all(G, findVertex(G, initialVertex), isVisited);
     }
     else
     {
+        cout << "Vertex to find: ";
         int searchedVertex;
         cin >> searchedVertex;
-        dfs_find(G, findVertex(G, initialVertex), isVisited, searchedVertex, false);
+        bool isFound = false;
+
+        addressVertex P = findVertex(G, searchedVertex);
+        if (P != NULL)
+        {
+            cout << "DFS : ";
+            dfs_find(G, findVertex(G, initialVertex), isVisited, searchedVertex, isFound);
+        }
+        else
+        {
+            cout << "Vertex does not exist";
+        }
     }
 
     cout << endl;
@@ -254,8 +264,6 @@ void commandDFSFind(Graph G)
     int initial, to;
     cout << "Initial Vertex: ";
     cin >> initial;
-    cout << "Vertex to find: ";
-    cin >> to;
     dfs(G, initial, true);
 }
 
@@ -263,9 +271,19 @@ void commandInputFromFile()
 {
     Graph G;
     createGraph(G);
+    bool isSearch = false;
+
+    cout << "[1] Run DFS to all Vertex (default)" << endl;
+    cout << "[2] Run DFS to search Vertex" << endl;
+    cout << "Pick a menu : ";
+    int command;
+    cin >> command;
+
+    if (command == 2)
+        isSearch = true;
 
     ifstream inFile;
-    string filename;
+    string filename = "./inputs/";
 
     char file;
     cout << "What File do you want to open? [0-6]: ";
@@ -289,7 +307,7 @@ void commandInputFromFile()
         inFile >> initialVertex;
         inFile.close();
 
-        dfs(G, initialVertex, false);
+        dfs(G, initialVertex, isSearch);
     }
     else
     {
