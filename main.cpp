@@ -1,29 +1,47 @@
 #include "graph.h"
 
+/*
+    Author : Muhammad Ilham Mubarak
+    Class :  IF-43-INT / 1301194276
+*/
+
 int main()
 {
     Graph G;
     createGraph(G);
 
-    // addEdge(G, 0, 1, 6);
-    // addEdge(G, 0, 2, 1);
-    // addEdge(G, 1, 2, 2);
-    // addEdge(G, 1, 3, 3);
-    // addEdge(G, 1, 4, 1);
-    // addEdge(G, 2, 3, 8);
-    // addEdge(G, 3, 4, 6);
+    int command;
+    do
+    {
+        printCommand();
+        cin >> command;
+        switch (command)
+        {
+        case 1:
+            commandInputFromFile();
+            break;
+        case 2:
+            commandAddVertex(G);
+            break;
+        case 3:
+            commandAddEdge(G);
+            break;
+        case 4:
+            commandDFSAll(G);
+            break;
+        case 6:
+            printGraph(G);
+            break;
+        case 7:
+            createGraph(G);
+            break;
+        default:
+            cout << "Please input the valid number (0 ~ 9)" << endl;
+            break;
+        }
+    } while (command != 0);
 
-    addEdge(G, 0, 1, 7);
-    addEdge(G, 0, 4, 8);
-    addEdge(G, 0, 3, 3);
-    addEdge(G, 1, 2, 1);
-    addEdge(G, 1, 3, 4);
-    addEdge(G, 2, 3, 2);
-    addEdge(G, 3, 4, 3);
-
-    // printGraph(G);
-
-    dfs(G, 0);
+    cout << "Thank you for using this program\nMade By Muhammad Ilham Mubarak - IF-43-INT - 1301194276" << endl;
 
     return 0;
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <fstream>
 
 using namespace std;
 
@@ -43,7 +44,12 @@ addressNeighbour createNeighbour(int value, int weight);
 void addVertex(Graph &G, int value);
 void addEdge(Graph &G, int V1, int V2, int weight);
 void printGraph(Graph G);
+void dfs(Graph G, int initialVertex, bool isFindVertex);
 
-void dfs(Graph G, int initialVertex);
+void printCommand();
+void commandAddVertex(Graph &G);
+void commandAddEdge(Graph &G);
+void commandDFSAll(Graph G);
+void commandInputFromFile();
 
 #endif // GRAPH_H
